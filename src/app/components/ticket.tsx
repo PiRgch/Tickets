@@ -7,7 +7,6 @@ interface TicketSVGProps {
 }
 
 const TicketSVG: React.FC<TicketSVGProps> = ({ fullname, github, avatar }) => {
-    console.log("fullname =", fullname);
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" fill="none" viewBox="0 0 600 280">
             <g filter="url(#a)">
@@ -39,12 +38,12 @@ const TicketSVG: React.FC<TicketSVGProps> = ({ fullname, github, avatar }) => {
             <rect width="3" height="16" x="485" y="222" fill="#fff" opacity=".2" rx="1.5" />
             <defs>
                 <linearGradient id="b" x1="610" x2="69.328" y1="26.462" y2="306.194" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#fff" stop-opacity=".3" />
-                    <stop offset="1" stop-color="#fff" stop-opacity=".1" />
+                    <stop stopColor="#fff" stopOpacity=".3" />
+                    <stop offset="1" stopColor="#fff" stopOpacity=".1" />
                 </linearGradient>
                 <linearGradient id="c" x1="0" x2="599.999" y1="140" y2="139.351" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#fff" />
-                    <stop offset="1" stop-color="#F37362" />
+                    <stop stopColor="#fff" />
+                    <stop offset="1" stopColor="#F37362" />
                 </linearGradient>
                 <filter
                     id="a"
@@ -52,10 +51,10 @@ const TicketSVG: React.FC<TicketSVGProps> = ({ fullname, github, avatar }) => {
                     height="360"
                     x="-40"
                     y="-40"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                     filterUnits="userSpaceOnUse"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feGaussianBlur in="BackgroundImageFix" stdDeviation="20" />
                     <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_107_802" />
                     <feBlend in="SourceGraphic" in2="effect1_backgroundBlur_107_802" result="shape" />
@@ -63,18 +62,18 @@ const TicketSVG: React.FC<TicketSVGProps> = ({ fullname, github, avatar }) => {
             </defs>
             <rect width="100%" height="100%" rx="20" fill="url(#grad1)" />
 
-            {/* Titre */}
+            {/* Title */}
             <image href="/images/logo-mark.svg" x="30" y="30" className="m-2" width={40} height={40} />
             <text x="90" y="60" fontSize="32" fill="white" fontWeight="bold">
                 Ticket
             </text>
 
-            {/* Date et Lieu */}
+            {/* Date / Localisation */}
             <text x="30" y="100" fontSize="18" fill="white" fillOpacity={0.5}>
                 Jan 31, 2025 / Austin, TX
             </text>
 
-            {/* Avatar (si dispo) */}
+            {/* Avatar */}
             {avatar && (
                 <image
                     href={URL.createObjectURL(avatar)}
@@ -86,7 +85,7 @@ const TicketSVG: React.FC<TicketSVGProps> = ({ fullname, github, avatar }) => {
                 />
             )}
 
-            {/* Nom dynamique */}
+            {/* Name */}
             <text x="130" y="200" fontSize="20" fill="white" fontWeight="bold">
                 {fullname}
             </text>
@@ -97,7 +96,7 @@ const TicketSVG: React.FC<TicketSVGProps> = ({ fullname, github, avatar }) => {
                 {github}
             </text>
 
-            {/* Numéro de ticket */}
+            {/* Id Ticket */}
             <text x="500" y="210" fontSize="24" fill="white" fillOpacity={0.5} transform="rotate(90 570,180)">
                 #01609
             </text>

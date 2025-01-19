@@ -15,14 +15,11 @@ const Form = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        console.log("Données du formulaire :", formData);
-
         router.push("/ticket");
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("handleChange =", e);
+
         const { name, value, files } = e.target;
 
         if (name === "avatar" && files) {
@@ -36,17 +33,15 @@ const Form = () => {
                 [name]: value,
             }));
         }
-
-        console.log("formData =", formData);
     };
 
     return (
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center w-full">
             <form className="flex flex-col min-w-[33%] p-6" onSubmit={handleSubmit}>
                 <label htmlFor="avatar" className="p-1">
                     Avatar
                 </label>
-                <input type="file" name="avatar" id="avatar" accept="image/*" className="hidden" onChange={handleChange} />
+                <input required={true} type="file" name="avatar" id="avatar" accept="image/*" className="hidden" onChange={handleChange} />
                 <label
                     htmlFor="avatar"
                     aria-placeholder="Upload your avatar"
@@ -69,6 +64,7 @@ const Form = () => {
                     Email
                 </label>
                 <input
+                    required={true}
                     type="email"
                     name="email"
                     placeholder="example@gmail.com"
@@ -81,6 +77,7 @@ const Form = () => {
                     Full Name
                 </label>
                 <input
+                    required={true}
                     type="text"
                     name="fullname"
                     value={formData.fullname}
@@ -92,6 +89,7 @@ const Form = () => {
                     Github
                 </label>
                 <input
+                    required={true}
                     type="text"
                     name="github"
                     placeholder="@yourusername"
